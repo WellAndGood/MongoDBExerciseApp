@@ -8,12 +8,16 @@
     "start": "node server.js",
     "watch": "nodemon server.js",
     "seed": "node seeders/seed.js"
-
   },
   "repository": {
     "type": "git",
     "url": "WellAndGood"
   },
   "author": "Daniel Pisani (WellAndGood)",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.14",
+    "morgan": "^1.10.0"
+  }
 }
