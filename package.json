@@ -1,0 +1,19 @@
+{
+  "name": "mongodb",
+  "version": "1.0.0",
+  "description": "This is a MongoDB powered exercise tracking app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "seed": "node seeders/seed.js"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "WellAndGood"
+  },
+  "author": "Daniel Pisani (WellAndGood)",
+  "license": "ISC"
+}
