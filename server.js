@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 mongoose.connect(
-    process.env.MONGODB_URI || 'mongodb://localhost/suck-it-up-fitness',
+    process.env.MONGODB_URI || 'mongodb://localhost/workout',
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -22,10 +22,10 @@ mongoose.connect(
     }
   );  
 
-// const apiRouter = (require("./routes/api.js"));
+const apiRouter = (require("./routes/api.js"));
 const htmlRouter = (require("./routes/html.js"));
 
-// app.use(apiRouter);
+app.use(apiRouter);
 app.use(htmlRouter);
 
 
