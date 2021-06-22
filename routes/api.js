@@ -34,25 +34,19 @@ router.put("/api/workouts/:id", (req, res) => {
         })
 });
 
-router.get("/api/workouts/range", (req, res) => {
-    Workout.aggregate([{
-        $addFields: {
-            totalDuration: {
-                $sum: "$exercises.duration",
+router.get("/api/workouts/range", async (req, res) => {
+
+    const workouts = await Workout.aggregate([{
+            $addFields: {
+                totalDuration: {
+                    $sum: "$exercises.duration",
+                }
             }
-        }
+        }])
 
-    // Workout.aggregate().sort({day: -1},[{
-    //     $addFields: {
-    //         totalDuration: {
-    //             $sum: "$exercises.duration"
-    //         }
-    //     } 
-
-    }]).then(data => {
-        console.log(data)
-        res.json(data)
-    })
+    const last7Workouts = workouts.splice(workouts.length - 7,  workouts.length - 1)  
+    res.json(last7Workouts)
+    
 });
 
 module.exports = router
